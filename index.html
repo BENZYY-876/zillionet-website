@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zillionet Innovative Services — Digital Growth for Kaduna Businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --deep: #12203B;
+    --deeper: #0A1526;
+    --gold: #D9A441;
+    --gold-bright: #E8BE6C;
+    --clay: #B6592D;
+    --cream: #F4EFE3;
+    --ink: #1C1A16;
+    --muted: #97A2B8;
+    --line: rgba(244,239,227,0.14);
+    --max: 1180px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Work Sans', sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+  section{position:relative;}
+  ::selection{background:var(--gold); color:var(--deeper);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(10,21,38,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:76px;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-size:1.35rem;
+    color:var(--cream);
+    font-weight:600;
+    display:flex; align-items:center; gap:10px;
+  }
+  .brand .mark{
+    width:14px; height:14px; border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 0 4px rgba(217,164,65,0.22);
+  }
+  .nav-links{
+    display:flex; gap:34px; align-items:center;
+  }
+  .nav-links a{
+    color:var(--muted);
+    font-size:0.96rem;
+    transition:color .2s ease;
+  }
+  .nav-links a:hover{color:var(--cream);}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:13px 26px;
+    font-size:0.95rem;
+    font-weight:600;
+    border-radius:3px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:transform .2s ease, background .2s ease, border-color .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-gold{background:var(--gold); color:var(--deeper);}
+  .btn-gold:hover{background:var(--gold-bright);}
+  .btn-ghost{border-color:var(--line); color:var(--cream);}
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold-bright);}
+  .btn-sm{padding:10px 20px; font-size:0.88rem;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:linear-gradient(180deg, var(--deeper) 0%, var(--deep) 62%, var(--deep) 100%);
+    padding:168px 0 0;
+    color:var(--cream);
+    min-height:92vh;
+    display:flex; align-items:center;
+    perspective:1400px;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:40px;
+    align-items:center;
+    width:100%;
+    padding-bottom:70px;
+  }
+  .eyebrow{
+    color:var(--gold-bright);
+    font-size:0.98rem;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 4.6vw, 3.8rem);
+    color:var(--cream);
+    max-width:11ch;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--gold-bright);
+  }
+  .hero p.lead{
+    margin-top:24px;
+    font-size:1.15rem;
+    color:var(--muted);
+    max-width:46ch;
+  }
+  .hero-ctas{
+    margin-top:38px;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .rating-strip{
+    margin-top:44px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    color:var(--muted);
+    font-size:0.92rem;
+  }
+  .stars{color:var(--gold-bright); letter-spacing:2px; font-size:1rem;}
+  .rating-strip strong{color:var(--cream); font-family:'Fraunces',serif; font-size:1.15rem;}
+
+  /* ---------- 3D GLOBE ---------- */
+  .globe-stage{
+    position:relative;
+    height:520px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transform-style:preserve-3d;
+  }
+  .globe{
+    position:relative;
+    width:340px; height:340px;
+    transform-style:preserve-3d;
+    will-change:transform;
+  }
+  .ring{
+    position:absolute; top:0; left:0; width:100%; height:100%;
+    border-radius:50%;
+    border:1px solid rgba(217,164,65,0.55);
+    transform-style:preserve-3d;
+  }
+  .ring::before{
+    content:'';
+    position:absolute; inset:0;
+    border-radius:50%;
+    box-shadow:inset 0 0 40px rgba(217,164,65,0.06);
+  }
+  .node{
+    position:absolute;
+    width:9px; height:9px;
+    border-radius:50%;
+    background:var(--gold-bright);
+    box-shadow:0 0 14px 3px rgba(232,190,108,0.65);
+  }
+  .globe-core{
+    position:absolute; top:50%; left:50%;
+    width:64px; height:64px;
+    margin:-32px 0 0 -32px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, var(--gold-bright), var(--clay) 75%);
+    box-shadow:0 0 60px 12px rgba(217,164,65,0.35);
+  }
+
+  /* ---------- TRUST BAR ---------- */
+  .trust{
+    background:var(--deeper);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .trust .wrap{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    padding:36px 28px;
+  }
+  .trust .item{
+    text-align:center;
+    color:var(--cream);
+    border-right:1px solid var(--line);
+  }
+  .trust .item:last-child{border-right:none;}
+  .trust .item b{
+    display:block;
+    font-family:'Fraunces', serif;
+    font-size:1.9rem;
+    color:var(--gold-bright);
+  }
+  .trust .item span{
+    color:var(--muted);
+    font-size:0.88rem;
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section-head{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+  .section-head .kicker{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--clay);
+    font-size:1.02rem;
+    margin-bottom:14px;
+  }
+  .section-head h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+    color:var(--ink);
+  }
+  .section-head p{
+    margin-top:16px;
+    color:#5B5648;
+    font-size:1.05rem;
+    max-width:56ch;
+  }
+  .light .section-head .kicker{color:var(--gold-bright);}
+  .light .section-head h2, .light .section-head p{color:var(--cream);}
+  .light .section-head p{color:var(--muted);}
+
+  /* divider */
+  .weave{
+    height:14px;
+    background-image:repeating-linear-gradient(135deg, var(--gold) 0 3px, transparent 3px 22px);
+    opacity:0.5;
+  }
+
+  /* ---------- TEAM ---------- */
+  .team{padding:110px 0; background:var(--cream);}
+  .team .wrap{
+    display:grid;
+    grid-template-columns:0.95fr 1.05fr;
+    gap:56px;
+    align-items:center;
+  }
+  .team-photo{
+    position:relative;
+    overflow:hidden;
+  }
+  .team-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    aspect-ratio:4/3;
+  }
+  .team-photo::after{
+    content:'';
+    position:absolute; inset:0;
+    border:1px solid rgba(28,26,22,0.12);
+    pointer-events:none;
+  }
+  .team-copy .section-head{margin-bottom:26px;}
+  .team-copy p.body{
+    color:#5B5648;
+    font-size:1.02rem;
+    max-width:52ch;
+    margin-bottom:16px;
+  }
+  .team-copy ul{
+    list-style:none;
+    margin-top:22px;
+  }
+  .team-copy li{
+    padding:12px 0;
+    border-top:1px solid rgba(28,26,22,0.14);
+    color:#3A362C;
+    font-size:0.98rem;
+  }
+  .team-copy li:last-child{border-bottom:1px solid rgba(28,26,22,0.14);}
+
+  @media (max-width: 900px){
+    .team .wrap{grid-template-columns:1fr;}
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services{padding:110px 0 100px; background:var(--cream);}
+  .service-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:rgba(28,26,22,0.12);
+    border:1px solid rgba(28,26,22,0.12);
+  }
+  .service{
+    background:var(--cream);
+    padding:38px 32px;
+    transition:background .25s ease;
+  }
+  .service:hover{background:#EDE6D4;}
+  .service .num{
+    font-family:'Fraunces', serif;
+    font-size:0.95rem;
+    color:var(--clay);
+    margin-bottom:18px;
+    display:block;
+  }
+  .service h3{
+    font-size:1.28rem;
+    margin-bottom:10px;
+    color:var(--ink);
+  }
+  .service p{
+    color:#5B5648;
+    font-size:0.98rem;
+  }
+
+  /* ---------- PROCESS ---------- */
+  .process{padding:100px 0; background:var(--deep); color:var(--cream);}
+  .process-list{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+    counter-reset:step;
+  }
+  .step{
+    border-top:2px solid var(--gold);
+    padding-top:22px;
+  }
+  .step .stepnum{
+    font-family:'Fraunces', serif;
+    font-size:2.2rem;
+    color:var(--gold-bright);
+    display:block;
+    margin-bottom:14px;
+  }
+  .step h4{font-size:1.1rem; margin-bottom:10px; color:var(--cream);}
+  .step p{color:var(--muted); font-size:0.94rem;}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{padding:110px 0; background:var(--cream);}
+  .t-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  .t-card{
+    background:#fff;
+    border:1px solid rgba(28,26,22,0.1);
+    padding:32px;
+    border-radius:2px;
+  }
+  .t-card .stars{color:var(--clay); margin-bottom:18px; display:block;}
+  .t-card p{font-size:1.02rem; color:#3A362C; font-family:'Fraunces', serif; font-style:italic; line-height:1.5;}
+  .t-card .who{
+    margin-top:22px;
+    font-size:0.9rem;
+    color:#7A7565;
+    font-family:'Work Sans', sans-serif;
+    font-style:normal;
+  }
+
+  /* ---------- CTA BANNER ---------- */
+  .cta-banner{
+    background:var(--gold);
+    color:var(--deeper);
+    padding:70px 0;
+  }
+  .cta-banner .wrap{
+    display:flex; align-items:center; justify-content:space-between; gap:30px; flex-wrap:wrap;
+  }
+  .cta-banner h2{font-size:clamp(1.6rem,3vw,2.2rem); max-width:16ch;}
+  .cta-banner .btn-ghost{border-color:rgba(10,21,38,0.4); color:var(--deeper);}
+  .cta-banner .btn-ghost:hover{border-color:var(--deeper); color:var(--deeper); background:rgba(10,21,38,0.08);}
+
+  /* ---------- CONTACT ---------- */
+  .contact{padding:110px 0; background:var(--deeper); color:var(--cream);}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+  }
+  .info-row{
+    display:flex; gap:18px;
+    padding:20px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .info-row .label{
+    width:110px;
+    flex-shrink:0;
+    color:var(--gold-bright);
+    font-family:'Fraunces', serif;
+    font-style:italic;
+  }
+  .info-row .value{color:var(--cream); font-size:0.98rem;}
+  .info-row .value a{color:var(--gold-bright); border-bottom:1px solid rgba(232,190,108,0.4);}
+  .hours-table{width:100%; border-collapse:collapse; font-size:0.94rem;}
+  .hours-table td{padding:8px 0; border-bottom:1px solid var(--line); color:var(--muted);}
+  .hours-table tr.today td{color:var(--cream); font-weight:600;}
+  .hours-table td:last-child{text-align:right;}
+  .map-card{
+    background:var(--deep);
+    border:1px solid var(--line);
+    padding:34px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    min-height:340px;
+  }
+  .map-card .pin{
+    width:44px; height:44px; border-radius:50%;
+    background:var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:26px;
+  }
+  .map-card address{font-style:normal; color:var(--cream); font-size:1.15rem; font-family:'Fraunces', serif; line-height:1.4;}
+  .map-card .code{color:var(--muted); font-size:0.85rem; margin-top:10px;}
+
+  /* ---------- CONTACT FORM ---------- */
+  .form-section{padding:0 0 110px; background:var(--deeper);}
+  .form-card{
+    background:var(--deep);
+    border:1px solid var(--line);
+    padding:44px;
+    max-width:640px;
+  }
+  .form-card h3{
+    color:var(--cream);
+    font-size:1.5rem;
+    margin-bottom:10px;
+  }
+  .form-card p.hint{
+    color:var(--muted);
+    font-size:0.94rem;
+    margin-bottom:30px;
+  }
+  .field{margin-bottom:20px;}
+  .field label{
+    display:block;
+    color:var(--muted);
+    font-size:0.86rem;
+    margin-bottom:8px;
+  }
+  .field input, .field textarea{
+    width:100%;
+    background:var(--deeper);
+    border:1px solid var(--line);
+    color:var(--cream);
+    padding:13px 14px;
+    font-family:'Work Sans', sans-serif;
+    font-size:0.96rem;
+    border-radius:2px;
+    transition:border-color .2s ease;
+  }
+  .field input:focus, .field textarea:focus{
+    outline:none;
+    border-color:var(--gold);
+  }
+  .field textarea{resize:vertical; min-height:110px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  .form-msg{
+    margin-top:18px;
+    font-size:0.92rem;
+    display:none;
+  }
+  .form-msg.show{display:block;}
+  .form-msg.success{color:#8FD9B0;}
+  .form-msg.error{color:#E38B8B;}
+  .submit-btn{
+    margin-top:6px;
+    width:100%;
+    border:none;
+    cursor:pointer;
+  }
+  .submit-btn[disabled]{opacity:0.6; cursor:not-allowed;}
+
+  @media (max-width: 620px){
+    .form-row{grid-template-columns:1fr;}
+    .form-card{padding:30px 24px;}
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--deeper); border-top:1px solid var(--line); padding:44px 0; color:var(--muted); font-size:0.88rem;}
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px){
+    .hero .wrap{grid-template-columns:1fr; padding-bottom:40px;}
+    .globe-stage{height:320px; order:-1;}
+    .trust .wrap{grid-template-columns:repeat(2,1fr); gap:24px 0;}
+    .trust .item:nth-child(odd){border-right:1px solid var(--line);}
+    .trust .item:nth-child(even){border-right:none;}
+    .service-grid{grid-template-columns:1fr;}
+    .process-list{grid-template-columns:repeat(2,1fr);}
+    .t-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr; gap:40px;}
+    .nav-links{display:none;}
+    .cta-banner .wrap{flex-direction:column; align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><span class="mark"></span>Zillionet Innovative Services</div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#process">How we work</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="btn btn-gold btn-sm" href="tel:+2348177070489">Call 0817 707 0489</a>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Digital marketing &amp; IT services, based in Kaduna</div>
+      <h1>Get found, get customers, <em>get growing</em> online.</h1>
+      <p class="lead">Zillionet Innovative Services builds websites, runs campaigns and sets up the networking your business needs — so more of Kaduna finds you first.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="tel:+2348177070489">Call now</a>
+        <a class="btn btn-ghost" href="https://wa.me/2348177070489" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
+      <div class="rating-strip">
+        <span class="stars">★★★★★</span>
+        <span><strong>4.9</strong> from 30 reviews · No 4 Barnawa Close, Kaduna</span>
+      </div>
+    </div>
+    <div class="globe-stage">
+      <div class="globe" id="globe">
+        <div class="ring r1"></div>
+        <div class="ring r2"></div>
+        <div class="ring r3"></div>
+        <div class="ring r4"></div>
+        <div class="globe-core"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <div class="item"><b>4.9★</b><span>Google rating</span></div>
+    <div class="item"><b>30+</b><span>Client reviews</span></div>
+    <div class="item"><b>6</b><span>Days open weekly</span></div>
+    <div class="item"><b>Kaduna</b><span>Barnawa-based team</span></div>
+  </div>
+</div>
+
+<section class="team">
+  <div class="wrap">
+    <div class="team-photo">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3IyA9UjoPUWba8jdUsa7GKo28Xd/hf_20260906_213332_518aa3f3-1d87-408a-9435-daced10d1321.png" alt="Zillionet team reviewing a client's marketing dashboard">
+    </div>
+    <div class="team-copy">
+      <div class="section-head">
+        <div class="kicker">The people behind the work</div>
+        <h2>A small Barnawa-based team, hands-on with every account</h2>
+      </div>
+      <p class="body">No call centres, no outsourcing overseas — every website, campaign and network setup is handled by the same local team you can walk in and meet at No 4 Barnawa Close.</p>
+      <ul>
+        <li>Direct access to the person doing your work, not a rotating support desk</li>
+        <li>On-site visits available for networking and IT jobs across Kaduna</li>
+        <li>Monthly check-ins so you always know what's working</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">What we do</div>
+      <h2>Everything your business needs to sell online</h2>
+      <p>From your first website to the ads that fill it with customers — one Barnawa-based team handles the digital side of your business.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service">
+        <span class="num">01</span>
+        <h3>Website design &amp; development</h3>
+        <p>Fast, mobile-friendly websites built to turn visitors into calls, orders and enquiries.</p>
+      </div>
+      <div class="service">
+        <span class="num">02</span>
+        <h3>Social media marketing</h3>
+        <p>Content, posting schedules and community management across Instagram, Facebook and TikTok.</p>
+      </div>
+      <div class="service">
+        <span class="num">03</span>
+        <h3>Search engine optimisation</h3>
+        <p>Get your business ranking when Kaduna customers search for what you sell.</p>
+      </div>
+      <div class="service">
+        <span class="num">04</span>
+        <h3>Paid advertising</h3>
+        <p>Meta and Google ad campaigns built around a budget and cost-per-customer you're comfortable with.</p>
+      </div>
+      <div class="service">
+        <span class="num">05</span>
+        <h3>Branding &amp; graphic design</h3>
+        <p>Logos, flyers and brand identity that make your business look as good as it performs.</p>
+      </div>
+      <div class="service">
+        <span class="num">06</span>
+        <h3>Networking &amp; IT support</h3>
+        <p>Office networking, internet setup and CCTV installation, handled by the same team.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process light" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">How we work</div>
+      <h2>Four steps from first call to first customer</h2>
+    </div>
+    <div class="process-list">
+      <div class="step">
+        <span class="stepnum">1</span>
+        <h4>Free consultation</h4>
+        <p>We visit or call to understand your business and where customers are dropping off.</p>
+      </div>
+      <div class="step">
+        <span class="stepnum">2</span>
+        <h4>A plan you approve</h4>
+        <p>A clear scope and cost, before any work or spend begins.</p>
+      </div>
+      <div class="step">
+        <span class="stepnum">3</span>
+        <h4>We build &amp; launch</h4>
+        <p>Website, campaign or network setup, delivered on the timeline we agreed.</p>
+      </div>
+      <div class="step">
+        <span class="stepnum">4</span>
+        <h4>Ongoing support</h4>
+        <p>Monthly reporting and hands-on help as your business keeps growing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Client reviews</div>
+      <h2>What Kaduna businesses say</h2>
+      <p>A sample of the kind of feedback behind our 4.9-star rating — swap in your own verified reviews here.</p>
+    </div>
+    <div class="t-grid">
+      <div class="t-card">
+        <span class="stars">★★★★★</span>
+        <p>"Our new website started bringing in enquiries within the first week. Communication was clear the whole way."</p>
+        <div class="who">Boutique owner, Kaduna</div>
+      </div>
+      <div class="t-card">
+        <span class="stars">★★★★★</span>
+        <p>"They set up our office network and handled our social media at the same time. One team, no back and forth."</p>
+        <div class="who">Small business owner, Barnawa</div>
+      </div>
+      <div class="t-card">
+        <span class="stars">★★★★★</span>
+        <p>"Professional, patient with our questions, and honest about what would actually move the needle for us."</p>
+        <div class="who">Service business owner, Kaduna</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <div class="wrap">
+    <h2>Ready for more customers to find you online?</h2>
+    <a class="btn btn-ghost" href="tel:+2348177070489">Call 0817 707 0489</a>
+  </div>
+</div>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="section-head light" style="margin-bottom:36px;">
+        <div class="kicker">Get in touch</div>
+        <h2>Visit, call or send a message</h2>
+      </div>
+      <div class="info-row">
+        <div class="label">Phone</div>
+        <div class="value"><a href="tel:+2348177070489">0817 707 0489</a></div>
+      </div>
+      <div class="info-row">
+        <div class="label">Address</div>
+        <div class="value">No 4 Barnawa Close, Barnawa, Kaduna 234800</div>
+      </div>
+      <div class="info-row">
+        <div class="label">Hours</div>
+        <div class="value">
+          <table class="hours-table">
+            <tr><td>Monday – Friday</td><td>8 am – 5 pm</td></tr>
+            <tr><td>Saturday</td><td>8 am – 5 pm</td></tr>
+            <tr class="today"><td>Sunday</td><td>Closed</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="map-card">
+      <div>
+        <div class="pin"></div>
+        <address>No 4 Barnawa Close,<br>Barnawa, Kaduna<br>234800, Nigeria</address>
+        <div class="code">Plus code: FC9V+3J Kaduna</div>
+      </div>
+      <a class="btn btn-gold" style="align-self:flex-start; margin-top:26px;" href="https://www.google.com/maps/search/?api=1&query=Zillionet+Innovative+Services+No+4+Barnawa+Close+Barnawa+Kaduna" target="_blank" rel="noopener">Get directions</a>
+    </div>
+  </div>
+</section>
+
+<section class="form-section">
+  <div class="wrap">
+    <div class="form-card">
+      <h3>Send us a message</h3>
+      <p class="hint">Fill this in and it lands straight in our inbox — usually get back to you the same business day.</p>
+      <form id="contact-form">
+        <input type="hidden" name="access_key" value="56045b63-3c46-4399-b867-f5e4f3febe1d">
+        <input type="hidden" name="subject" value="New enquiry from Zillionet website">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="message">What do you need help with?</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-gold submit-btn" id="submit-btn">Send message</button>
+        <p class="form-msg" id="form-msg"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="year"></span> Zillionet Innovative Services · Barnawa, Kaduna</div>
+    <div>Internet marketing &amp; networking services</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Contact form — submits to Web3Forms (free, no backend required)
+  (function(){
+    var form = document.getElementById('contact-form');
+    var btn = document.getElementById('submit-btn');
+    var msg = document.getElementById('form-msg');
+    if(!form) return;
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      var accessKey = form.querySelector('[name="access_key"]').value;
+      if(!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY'){
+        msg.textContent = 'Form is not set up yet — add your Web3Forms access key in the HTML file.';
+        msg.className = 'form-msg show error';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      msg.className = 'form-msg';
+
+      var data = new FormData(form);
+      var payload = Object.fromEntries(data.entries());
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function(res){ return res.json(); })
+      .then(function(result){
+        if(result.success){
+          msg.textContent = "Thanks — your message has been sent. We'll get back to you shortly.";
+          msg.className = 'form-msg show success';
+          form.reset();
+        } else {
+          msg.textContent = result.message || 'Something went wrong. Please try again or call us directly.';
+          msg.className = 'form-msg show error';
+        }
+      })
+      .catch(function(){
+        msg.textContent = 'Could not send right now. Please try again or call us directly.';
+        msg.className = 'form-msg show error';
+      })
+      .finally(function(){
+        btn.disabled = false;
+        btn.textContent = 'Send message';
+      });
+    });
+  })();
+
+  // Scroll-driven 3D globe in the hero
+  (function(){
+    var globe = document.getElementById('globe');
+    var hero = document.querySelector('.hero');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!globe || !hero) return;
+
+    // Build wireframe rings with distinct fixed 3D tilts + orbiting nodes
+    var ringDefs = [
+      {rx: 0,  ry: 0,  size: 100},
+      {rx: 70, ry: 20, size: 100},
+      {rx: 70, ry: 100,size: 100},
+      {rx: 20, ry: 60, size: 82}
+    ];
+    var rings = document.querySelectorAll('#globe .ring');
+    rings.forEach(function(r, i){
+      var d = ringDefs[i];
+      var s = d.size + '%';
+      r.style.width = s; r.style.height = s;
+      r.style.top = ((100-d.size)/2) + '%';
+      r.style.left = ((100-d.size)/2) + '%';
+      r.dataset.rx = d.rx; r.dataset.ry = d.ry;
+
+      // scatter a few glowing nodes on each ring
+      var nodeCount = 3;
+      for(var n=0; n<nodeCount; n++){
+        var node = document.createElement('div');
+        node.className = 'node';
+        var ang = (360/nodeCount)*n + i*27;
+        node.style.left = (50 + 48*Math.cos(ang*Math.PI/180)) + '%';
+        node.style.top  = (50 + 48*Math.sin(ang*Math.PI/180)) + '%';
+        r.appendChild(node);
+      }
+    });
+
+    if(reduce){
+      rings.forEach(function(r){
+        var rx = r.dataset.rx, ry = r.dataset.ry;
+        r.style.transform = 'rotateX('+rx+'deg) rotateY('+ry+'deg)';
+      });
+      return;
+    }
+
+    var ticking = false;
+    function update(){
+      ticking = false;
+      var rect = hero.getBoundingClientRect();
+      var vh = window.innerHeight;
+      // progress: 0 when hero top at viewport top, 1 when hero fully scrolled past
+      var progress = Math.min(Math.max((-rect.top) / (rect.height), 0), 1.4);
+      var spin = window.scrollY * 0.12;
+
+      rings.forEach(function(r, i){
+        var rx = parseFloat(r.dataset.rx);
+        var ry = parseFloat(r.dataset.ry) + spin * (i % 2 === 0 ? 1 : -0.7);
+        r.style.transform = 'rotateX('+rx+'deg) rotateY('+ry+'deg)';
+      });
+
+      var scale = 1 + progress * 0.35;
+      var lift = progress * -60;
+      var fade = 1 - Math.min(progress * 0.9, 0.85);
+      globe.style.transform = 'translateY('+lift+'px) scale('+scale+')';
+      globe.style.opacity = fade;
+    }
+    function onScroll(){
+      if(!ticking){
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    update();
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE folders
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Environment files (if you ever add API keys outside the HTML itself)
+.env
